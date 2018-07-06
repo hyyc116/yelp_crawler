@@ -307,7 +307,7 @@ def crawl(zipcode=None):
             data[zipcode].extend(extracted)
 
             page += 10
-            time.sleep(random.randint(1, 2) * .931467298)
+            time.sleep(random.randint(2, 3) * .931467298)
 
         print 'writing to yelp_data.json.'
         print data,zipcode
