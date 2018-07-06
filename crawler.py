@@ -279,7 +279,7 @@ def crawl(zipcode=None):
 
     crawled_zipcodes = set()
     for line in open('crawled_zipcode.txt'):
-        crawled_zipcodes.add(line.strip())
+        crawled_zipcodes.add(int(line.strip()))
 
     f = open('yelp_data.json','a+')
     zf = open('crawled_zipcode.txt','a+')
