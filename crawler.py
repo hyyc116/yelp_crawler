@@ -281,8 +281,8 @@ def crawl(zipcode=None):
     for line in open('crawled_zipcode.txt'):
         crawled_zipcodes.add(line.strip())
 
-    f = open('yelp_data.json','a+')
-    zf = open('crawled_zipcode.txt','a+')
+    f = open('yelp_data.json','w')
+    zf = open('crawled_zipcode.txt','w')
 
     if zipcode is None:
         print '\n**We are attempting to extract all zipcodes in America!**'
@@ -300,10 +300,9 @@ def crawl(zipcode=None):
         while flag:
             # print '----page',page,'----'
             extracted, flag = crawl_page(zipcode, page,True)
-            if not flag:
-                print 'extraction stopped or broke at zipcode'
-                break
-
+            # if not flag:
+            #     print 'extraction stopped or broke at zipcode'
+            #     break
 
             data[zipcode].extend(extracted)
 
@@ -311,6 +310,7 @@ def crawl(zipcode=None):
             time.sleep(random.randint(1, 2) * .931467298)
 
         print 'writing to yelp_data.json.'
+        print data,zipcode
         f.write(json.dumps(data)+'\n')
         zf.write(str(zipcode)+'\n')
 
