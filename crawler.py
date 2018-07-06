@@ -282,8 +282,8 @@ def crawl(zipcode=None):
     for line in open('crawled_zipcode.txt'):
         crawled_zipcodes.add(line.strip())
 
-    f = open('yelp_data.json','w+')
-    zf = open('crawled_zipcode.txt','w+')
+    f = open('yelp_data.json','a+')
+    zf = open('crawled_zipcode.txt','a+')
 
     if zipcode is None:
         print '\n**We are attempting to extract all zipcodes in America!**'
