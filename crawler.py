@@ -275,7 +275,6 @@ def crawl_page(zipcode, page_num, verbose=False):
         return extracted,False
 
 def crawl(zipcode=None):
-    page = 0
     some_zipcodes = [zipcode] if zipcode else get_zips()
 
     crawled_zipcodes = set()
@@ -290,6 +289,7 @@ def crawl(zipcode=None):
 
     for zipcode in some_zipcodes:
         flag = True
+    	page = 0
 
         if zipcode in crawled_zipcodes:
             print '\n=== <', zipcode ,'> already crawled.====\n'
