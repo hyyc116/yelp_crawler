@@ -314,6 +314,8 @@ def crawl(zipcode=None):
         f.write(json.dumps(data)+'\n')
         zf.write(str(zipcode)+'\n')
 
+        time.sleep(random.randint(30, 50) * .931467298)
+
 
 
 if __name__ == '__main__':
