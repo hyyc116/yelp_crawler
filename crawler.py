@@ -34,7 +34,7 @@ def get_zips():
     f = open(ZIP_URL, 'r+')
     zips = [int(zz.strip()) for zz in f.read().split('\n') if zz.strip() ]
     f.close()
-    return zips
+    return list(set(zips))
 
 def crawl_page(zipcode, page_num, verbose=False):
     """
